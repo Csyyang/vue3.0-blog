@@ -1,8 +1,12 @@
 <template>
   <div class="home">
-    <loading @touchmove="test" v-show="isloading" />
+    <loading v-show="isloading" />
     <div v-show="!isloading">
-      233
+     <headers />
+     发生都啥大法师打发斯蒂芬斯蒂芬双方都
+     发生都啥大法师打发斯蒂芬斯蒂芬双方都
+     发生都啥大法师打发斯蒂芬斯蒂芬双方都
+     发生都啥大法师打发斯蒂芬斯蒂芬双方都
     </div>
   </div>
 </template>
@@ -11,18 +15,20 @@
 // @ is an alias to /src
 import { ref } from 'vue'
 import loading from '@/components/loading'
+import headers from '@/components/header'
 
 export default {
   name: 'Home',
   components: {
-    loading
+    loading,
+    headers
   },
   setup() {
     const isloading = ref(true)
 
-    // setTimeout(() => {
-    //   isloading.value = false
-    // },3000)
+    setTimeout(() => {
+      isloading.value = false
+    },1000)
 
 
 

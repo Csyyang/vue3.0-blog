@@ -1,6 +1,6 @@
 <template>
   <div id="loading">
-    <div class="box">
+    <div class="box center">
       <img :src="require('@/assets/loading.png')">
     </div>
   </div>
@@ -31,8 +31,8 @@ export default {
     left: 0;
     bottom: 0;
     margin: auto;
-    width: 64px;
-    height: 64px;
+    width: 0.64rem;
+    height: 0.64rem;
     animation: rotates 4s linear;
     animation-iteration-count: infinite;
     animation-direction: reverse;
