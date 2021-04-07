@@ -2,8 +2,9 @@
   <div class="home">
     <!-- 头部组件 -->
     <headers />
-    <section class="context">
 
+    <!-- 轮播图 -->
+    <section class="context">
       <div class="photo">
         <div ref="touch" class="touch" @touchstart.prevent="touchstart" @touchmove.prevent="touchmove" @touchend.prevent="touchend">
           <ul class="photo-box" v-for="(item,index) in img" :key="index">
@@ -16,10 +17,14 @@
           <li v-for="(item,index) in img" :key="index" :class="[index === imgIndex?'white-point':'']"></li>
         </ul>
       </div>
-
-      <!-- 文章组件 -->
-      <articles />
     </section>
+
+    <!-- 文章组件 -->
+    <articles />
+
+    <!-- 底部组件 -->
+    <footers />
+
   </div>
 </template>
 <script>
@@ -28,11 +33,14 @@
 import headers from '@/components/header'
 import touchMethods from '@/views/home/home.js'
 import articles from '@/components/article'
+import footers from '@/components/footer'
+
 export default {
   name: 'Home',
   components: {
     headers,
-    articles
+    articles,
+    footers
   },
   setup() {
     // 轮播
