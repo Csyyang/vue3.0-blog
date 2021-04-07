@@ -11,25 +11,17 @@
     </div>
 
   </section>
-  <transition name="fade">
-    <section class="popup" v-show="showPop" @click="closePopup">
-      <transition name="box">
-        <div class="context" v-show="showPop">
-          <section class="head-portrait">
-            <img :src="require('@/assets/head-portrait.png')" alt="">
-            <p>23333</p>
-            <p>2333</p>
-          </section>
-        </div>
-      </transition>
-    </section>
-  </transition>
 
+  <popup :showPop="showPop" @closePopup="changePopup"/>
 </template>
 <script>
 import { ref } from "vue";
+import popup from './popup'
 
 export default {
+  components: {
+    popup
+  },
   setup() {
     //data
     const showPop = ref(false);
@@ -39,16 +31,10 @@ export default {
       showPop.value = !showPop.value;
     };
 
-    const closePopup = (e) => {
-      if (e.target !== e.currentTarget) return;
-
-      changePopup();
-    };
 
     return {
       showPop,
-      changePopup,
-      closePopup,
+      changePopup
     };
   },
 };
@@ -84,56 +70,6 @@ export default {
     line-height: 0.5rem;
   }
 }
-.popup {
-  position: absolute;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  .context {
-    width: 2.6rem;
-    height: 100vh;
-    background: #111;
-    position: relative;
-    .head-portrait {
-      width: 100%;
-      height: 1.99rem;
-      padding: 40px 0 28px 0;
-      text-align: center;
-      color: #fff;
-      img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: contain;
-      }
-    }
-  }
-}
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.box-enter-active {
-  animation: box-in 0.5s;
-}
-.box-leave-active {
-  animation: box-in 0.5s reverse;
-}
-
-@keyframes box-in {
-  from {
-    left: -2.6rem;
-  }
-  to {
-    left: 0;
-  }
-}
 </style>

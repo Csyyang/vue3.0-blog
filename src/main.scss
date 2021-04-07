@@ -1,7 +1,30 @@
-html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, div  
-form, fieldset, legend, img, section { margin:0; padding:0;box-sizing: border-box; } 
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div form,
+fieldset,
+legend,
+img,
+section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
 }
@@ -9,15 +32,34 @@ body {
     font-size: 0.16rem;
     max-width: 750px;
     margin: auto;
+    color: #fff;
 }
 
-fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none;background: none; }
+fieldset,
+img,
+input,
+button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+    background: none;
+}
 
-ul, ol { list-style:none; }
+ul,
+ol {
+    list-style: none;
+}
 
-input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
 
-a,a:hover,a:active {
+a,
+a:hover,
+a:active {
     text-decoration: none;
     color: black;
 }
@@ -26,4 +68,14 @@ a,a:hover,a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.font15 {
+    line-height: 0.15rem;
+    font-size: 0.15rem;
+}
+
+.font14 {
+    line-height: 0.14rem;
+    font-size: 0.14rem;
 }
