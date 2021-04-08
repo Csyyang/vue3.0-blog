@@ -1,3 +1,5 @@
+const mysql = require('../mysql/index')
+
 const testUpdate = async ctx => {
     ctx.response.body = {
       code: '00',
@@ -5,6 +7,17 @@ const testUpdate = async ctx => {
     }
   }
 
-  module.exports = {
-    'POST /test/testUpdate': testUpdate
+  var test_sql_all = async ctx => {
+    let data = await mysql.queryAll("img_list");
+    ctx.response.body = {
+      code: '00',
+      data: data,
+      message: 'success'
+    }
   }
+
+  module.exports = {
+    'POST /test/testUpdate': testUpdate,
+    'POST /test/test_sql_all': test_sql_all
+  }
+
