@@ -10,7 +10,7 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
 
-    config.data['tokenId'] = sessionStorage.getItem('tokenId')
+    // config.data['tokenId'] = sessionStorage.getItem('tokenId')
     // }
     return config
   },

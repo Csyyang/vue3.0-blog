@@ -26,7 +26,7 @@ export default {
     let pass = ref('admin')
 
     const login = async () => {
-      const res = await submit({ usr, pass })
+      const res = await submit({ usr: usr.value, pass: pass.value })
       if (res.state == '00') {
         router.push('Index')
       }
