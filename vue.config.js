@@ -8,7 +8,9 @@ module.exports = {
             return {
                 devServer: {
                     proxy: { // proxy URLs to backend development server
-                        '/api': 'http://localhost:3000'
+                        '/api': {
+                            target: 'http://localhost:3000'
+                        }
                     }
                 }
             }

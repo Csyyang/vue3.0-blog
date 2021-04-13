@@ -1,6 +1,7 @@
 const mysql = require('../mysql/index')
 
 const testUpdate = async ctx => {
+  console.log(ctx.request.body)
     ctx.response.body = {
       code: '00',
       message: 'success'
