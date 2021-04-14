@@ -1,14 +1,18 @@
 <template>
   <section id="login">
-    <form class="form">
-      <label class="user" for="user">用户名
-        <input v-model="usr" name="user" type="text" placeholder="用户名">
-      </label>
-      <label class="password" for="password">密码
-        <input v-model="pass" name="password" type="text">
-      </label>
+    <form>
+      <p class="title">后管登录</p>
 
-      <button @click="login">登录</button>
+      <div class="form-item">
+        <label for="user">用户名</label>
+        <input v-model="user" name="user" type="text">
+      </div>
+      <div class="form-item">
+        <label for="user">密码</label>
+        <input v-model="password" name="user" type="password">
+      </div>
+
+      <button>登录</button>
     </form>
   </section>
 </template>
@@ -22,19 +26,19 @@ import { useRouter } from 'vue-router'
 export default {
   setup() {
     const router = useRouter()
-    let usr = ref('admin')
-    let pass = ref('admin')
+    const user = ref('admin')
+    const password = ref('admin')
 
     const login = async () => {
-      const res = await submit({ usr: usr.value, pass: pass.value })
+      const res = await submit({ usr: user.value, pass: password.value })
       if (res.state == '00') {
         router.push('Index')
       }
     }
 
     return {
-      usr,
-      pass,
+      user,
+      password,
       login
     }
   }
@@ -42,25 +46,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form {
-  background: #fff;
-  color: black;
+#login {
+  background: url(../../assets/background.jpeg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-right: 20%;
-  height: 2.5rem;
   justify-content: center;
-  input {
-    border: 1px solid rgb(182, 182, 182);
-  }
-  button {
-    width: 0.5rem;
-    height: 0.3rem;
-    text-align: center;
-    line-height: 0.15rem;
-    border: 1px solid rgb(116, 116, 116);
-    margin-top: 2px;
+  align-items: center;
+  form {
+    width: 3rem;
+    height: 2rem;
+    background: #ccc;
+    opacity: 0.5;
+    .title {
+      text-align: center;
+      font-size: .2rem;
+      margin-top: .12rem;
+      margin-bottom: .2rem;
+    }
+    .form-item {
+      display: flex;
+      justify-content: center;
+      margin-bottom: .12rem;
+      label {
+        width: .6rem;
+      }
+      input {
+        border-radius: .03rem;
+        width: 1.3rem;
+        &:hover,&:focus {
+          background: #fff;
+        }
+      }
+    }
   }
 }
 </style>

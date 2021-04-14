@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            animation: box .5s;
+        }
+
+        @keyframes box {
+            from {
+                left: -20px;
+            }
+            to {
+                left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box" style="display: none;">323</div>
+    <button class="test">test</button>
+    <script>
+        const test =  document.querySelector('.test');
+
+        test.addEventListener('click',function() {
+            const box =  document.querySelector('.box');
+            box.style.display = "block"
+
+
+        },false)
+
+    </script>
+</body>
+</html>

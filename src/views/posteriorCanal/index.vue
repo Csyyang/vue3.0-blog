@@ -1,13 +1,18 @@
 <template>
-  <section id="index"></section>
+  <section id="index">
+    <markdown />
+  </section>
 </template>
 
 <script>
-export default {
+import markdown from "@/components/markdown";
 
-}
+export default {
+  components: {
+    markdown,
+  },
+};
 </script>
 
 <style>
-
 </style>
