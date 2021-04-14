@@ -8,11 +8,11 @@
         <input v-model="user" name="user" type="text">
       </div>
       <div class="form-item">
-        <label for="user">密码</label>
-        <input v-model="password" name="user" type="password">
+        <label for="password">密码</label>
+        <input v-model="password" name="password" type="password">
       </div>
 
-      <button>登录</button>
+      <button class="btn" @click="login">登录</button>
     </form>
   </section>
 </template>
@@ -30,9 +30,9 @@ export default {
     const password = ref('admin')
 
     const login = async () => {
-      const res = await submit({ usr: user.value, pass: password.value })
-      if (res.state == '00') {
-        router.push('Index')
+      const res = await submit({ user: user.value, password: password.value })
+      if (res.code == '00') {
+        router.push('./index')
       }
     }
 
@@ -78,6 +78,15 @@ export default {
         &:hover,&:focus {
           background: #fff;
         }
+      }
+    }
+    .btn {
+      display: block;
+      width: .3rem;
+      margin: 0 auto;
+      color: #fff;
+      &:active {
+        background: rgb(48, 48, 48);
       }
     }
   }

@@ -1,28 +1,28 @@
 <template>
   <section id="markdowm">
     <div v-html="data"></div>
-    <textarea v-model="text"></textarea>
-    <button @click="change">change</button>
   </section>
 </template>
 
 <script>
 import marked from "marked";
-import { ref } from 'vue'
- 
-export default {
-  setup() {
-    const text = ref('')
-    const data = ref('');
+import {  computed } from 'vue'
 
-    const change = () => {
-      data.value = marked(text.value)
+export default {
+  props: {
+    context: {
+      type: String,
+      default: ''
     }
+  },
+  setup(prop) {
+    const data = computed(() => {
+      return marked(prop.context)
+    })
+
 
     return {
-      change,
       data,
-      text
     };
   },
 };
@@ -32,7 +32,6 @@ export default {
 #markdowm {
   background: #fff;
   overflow-y: auto;
-  height: 100vh;
   color: #111111;
   h1,
   h2,

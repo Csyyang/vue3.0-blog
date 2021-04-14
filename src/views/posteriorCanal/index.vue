@@ -1,6 +1,37 @@
 <template>
   <section id="index">
-    <markdown />
+
+    <form>
+      <div class="form-item">
+        <label for="title">标题</label>
+        <input v-model="form.title" id="title" type="text">
+      </div>
+      <div class="form-item">
+        <label for="type">类型</label>
+        <select v-model="form.type" id="type">
+          <option value=""></option>
+          <option value="0">技术杂谈</option>
+          <option value="1">游戏杂谈</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label for="context">预览</label>
+        <markdown :context="form.context" />
+      </div>
+      <div class="form-item">
+        <label for="edit">编辑</label>
+        <div class="edit-box">
+          <textarea v-model="form.context" name="edit" id="edit"></textarea>
+
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="file">展示图片</label>
+        <input @change="changeFile" type="file">
+      </div>
+      <img :src="url">
+    </form>
+
     <!-- <loading /> -->
   </section>
 </template>
@@ -9,39 +40,87 @@
 // import loading from '@/plugin/loading/index'
 // import { h } from 'vue'
 import markdown from "@/components/markdown";
-
+import { ref } from 'vue'
 export default {
   components: {
     markdown,
-    // loading: loading.component
   },
-  // created() {
-  //   let a = loading.serve()
-  //   setTimeout(() => {
-  //     a.show()
-  //   }, 1000)
-  // }
-  // setup() {
-  //   return () => h(
-  //     'div',
-  //     {
-  //       id: 'loading'
-  //     },
-  //     h('div',
-  //       {
-  //         classList: 'box center'
-  //       },
-  //       h('img',
-  //       {
-  //         src: require('@/assets/loading.png')
-  //       }
-  //       )
-  //     )
-  //   )
-  // }
+  setup() {
+    const test = ref('23333')
+    const url = ref('')
+
+    const form = ref({
+      title: '',
+      type: '',
+      context: '',
+      file: ''
+    })
+
+    const change = () => {
+      test.value = '111111'
+    }
+
+    const changeFile = (val) => {
+      console.log(val.target.files)
+      const file = new FormData()
+      file.append('file',val.target.files[0])
+      url.value = URL.createObjectURL(val.target.files[0])
+    }
+
+    return {
+      test,
+      change,
+      form,
+      changeFile,
+      url
+    }
+  }
+
 
 };
 </script>
-
-<style>
+<style lang="scss" scoped>
+#index {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fff;
+  background: url(../../assets/bg2.jpeg);
+  background-size: cover;
+  color: black;
+  .form-item {
+    margin-bottom: 0.12rem;
+    label {
+      width: 0.6rem;
+    }
+    input {
+      border-radius: 0.03rem;
+      border: 1px solid #ccc;
+      border-radius: 0.06rem;
+      width: 1.3rem;
+      &:hover,
+      &:focus {
+        background: #fff;
+      }
+    }
+    .edit-box {
+      padding: 0.08rem;
+      textarea {
+        box-sizing:border-box;
+        overflow-x: auto;
+        white-space:nowrap;
+        width: 100%;
+        height: 3rem;
+        resize: none;
+        padding: .09rem;
+      }
+      .btn {
+        padding: 0.12rem 0.2rem;
+        &:active {
+          background: rgb(224, 224, 224);
+        }
+      }
+    }
+  }
+}
 </style>
