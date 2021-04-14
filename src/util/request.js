@@ -1,4 +1,7 @@
 import axios from 'axios'
+import loading from '@/plugin/loading/index'
+
+let loadings = loading.serve()
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_URL,
@@ -8,6 +11,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
+    // loadings.show()
     // do something before request is sent
 
     // config.data['tokenId'] = sessionStorage.getItem('tokenId')
@@ -25,7 +29,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     // toast.clear()
-
+    loadings.close()
     const res = response.data
     if (res.code === 'timeout') {
       // to re-login
