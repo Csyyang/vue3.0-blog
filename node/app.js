@@ -18,4 +18,4 @@ app.on('error', async (err) => {//捕获全局错误
 });
 
 
-app.use(Static(__dirname, 'static')).use(bodyParser()).use(router.routes()).listen(3000);
+app.use(Static(__dirname, 'static')).use(bodyParser()).use(router.routes()).listen(80);

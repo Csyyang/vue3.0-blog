@@ -1,0 +1,63 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+      <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./touch.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=0"/>  
+    <style>  
+    * {margin: 0;  padding: 0;}   
+    #outer{ width:90%; height: 490px; background: #fff; margin: auto;  overflow: hidden;}    
+    </style>  
+    <script src="./unslider.min.js"></script>
+
+ 
+</head>  
+<body>  
+    <div id="outer"> 
+        <h1>切换手机模式手指滑动屏幕进行测试</h1>
+    </div>  
+    
+</body>  
+  <!-- 左右滑动 -->
+    <script>  
+        var startX,//触摸时的坐标   
+            startY,   
+             x, //滑动的距离   
+             y,   
+             aboveY=0; //设一个全局变量记录上一次内部块滑动的位置  
+            
+            function touchSatrt(e){//触摸   
+                e.preventDefault();   
+                var touch=e.touches[0];   
+                startX = touch.pageX;   //刚触摸时的坐标   x              
+                startY = touch.pageY;   //刚触摸时的坐标   y              
+            }   
+  
+            function touchMove(e){//滑动 
+                 e.preventDefault();           
+                 var  touch = e.touches[0];              
+                 x = startX - touch.pageX;//滑动的距离 x
+                 y = startY - touch.pageY;//滑动的距离 y                 
+            }     
+  
+            function touchEnd(e){//手指离开屏幕  
+                // x 左右滑动距离 以及方向 左滑大于 0 右滑小于0
+                // y 上下滑动距离 以及方向 上滑 大于0 下滑小于0
+                // 判断滑动方向 上下
+                if(x > 0){
+                    alert("左滑距离:"+x+"px");
+                   
+                }else if(x<0){
+                    x = x*-1;
+                    alert("右滑距离:"+x+"px");
+                    
+                }
+              e.preventDefault();                        
+  
+            }//   
+             document.getElementById("outer").addEventListener('touchstart', touchSatrt,false);     
+             document.getElementById("outer").addEventListener('touchmove', touchMove,false);     
+             document.getElementById("outer").addEventListener('touchend', touchEnd,false);     
+    </script>  
+</html>  
