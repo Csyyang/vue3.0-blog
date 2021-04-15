@@ -1,7 +1,9 @@
 module.exports = {
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : './',
     configureWebpack: () => {
         if (process.env.NODE_ENV === 'production') {
             console.log('生产')
+            
         }
         else {
             console.log('测试')
