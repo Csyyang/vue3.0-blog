@@ -11,7 +11,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-    // loadings.show()
+    loadings.show()
     // do something before request is sent
 
     // config.data['tokenId'] = sessionStorage.getItem('tokenId')

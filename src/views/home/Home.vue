@@ -81,8 +81,9 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  overflow-y: scroll;
   .context {
     padding-top: 0.5rem;
     .photo {

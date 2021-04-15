@@ -16,5 +16,16 @@ router.post('/getArticles',  async ctx => {
     }
 })
 
+router.post('/typeArticles', async ctx => {
+    const type = ctx.request.body.type
+    const data = await mysql.queryWhere('article',"article_type=" + type)
+
+    ctx.body = {
+        code: '00',
+        message: 'success',
+        context: data
+    }
+})
+
 
 module.exports = router

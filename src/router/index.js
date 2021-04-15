@@ -21,6 +21,11 @@ const route = [
     name: 'Details',
     component: () => import(/* webpackChunkName: "about" */ '../views/details.vue')
   },
+  {
+    path: '/list',
+    name: 'List',
+    component: () => import(/* webpackChunkName: "about" */ '../views/list.vue')
+  },
 ]
 
 let routes = route.concat(posteriorCanal)

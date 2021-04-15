@@ -13,11 +13,16 @@
             <ul class="list-context">
               <li>
                 <img :src="require('@/assets/home.png')">
-                <span>首页</span>
+                <router-link to="/">
+                  <span>首页</span>
+                </router-link>
               </li>
               <li>
                 <img :src="require('@/assets/code.png')">
-                <span>技术分享</span>
+                <router-link :to="{ path: '/list', query: { type: '0' } }">
+                  <span>技术分享</span>
+                </router-link>
+
               </li>
               <li>
                 <img :src="require('@/assets/message.png')">
@@ -93,6 +98,9 @@ export default {
     .list-menu {
       padding-top: 0.1rem;
       .list-context {
+        a {
+          color: #fff;
+        }
         li {
           height: 0.45rem;
           padding: 0 0.16rem;

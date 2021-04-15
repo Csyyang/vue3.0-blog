@@ -1,9 +1,10 @@
 <template>
-  <div style="height:.5rem">
-    <headers />
-  </div>
 
   <section id="details">
+    <div style="height:.5rem">
+      <headers />
+    </div>
+
     <markdown :context="content.article_context" />
   </section>
 </template>
@@ -35,5 +36,7 @@ export default {
 #details {
   background: #fff;
   height: 100vh;
+  overflow-y: scroll;
+  padding:.2rem 0 ;
 }
 </style>

@@ -119,10 +119,10 @@ export default {
     line-height: 24px;
   }
 
-  ol ol,
-  ul ol {
-    list-style-type: initial;
-  }
+  // ol ol,
+  // ul ol {
+  //   list-style-type: initial;
+  // }
 
   /*pre {
     padding: 0px 24px;
