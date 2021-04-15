@@ -7,12 +7,14 @@
       前端blog
     </div>
     <div class="list">
-      <img class="width50" :src="require('@/assets/xing.png')" alt="">
+      <router-link to="/posterior/login">
+        <img class="width50" :src="require('@/assets/xing.png')">
+      </router-link>
     </div>
 
   </section>
 
-  <popup :showPop="showPop" @closePopup="changePopup"/>
+  <popup :showPop="showPop" @closePopup="changePopup" />
 </template>
 <script>
 import { ref } from "vue";
@@ -70,6 +72,4 @@ export default {
     line-height: 0.5rem;
   }
 }
-
-
 </style>
