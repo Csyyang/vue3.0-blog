@@ -25,6 +25,8 @@ export default {
 
     const content = JSON.parse(router.query.detail)
 
+    console.log(content)
+
     return {
       content
     }

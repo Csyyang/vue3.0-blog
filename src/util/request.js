@@ -43,6 +43,7 @@ service.interceptors.response.use(
     }
   },
   error => {
+    loadings.close()
     console.log(error) // for debug
     const reg1 = /timeout/gi
     let msg = error.message

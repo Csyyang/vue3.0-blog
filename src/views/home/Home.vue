@@ -53,7 +53,7 @@ export default {
 
     const getList = async () => {
       const res = await getArticles()
-      articleList.value = res.message
+      articleList.value = res.context
     }
 
 
