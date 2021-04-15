@@ -29,9 +29,10 @@
         <label for="file">展示图片</label>
         <input @change="changeFile" type="file">
       </div>
-      <img :src="url">
+      <img v-if="url" class="preview" :src="url">
     </form>
 
+    <button @click="upload">上传</button>
     <!-- <loading /> -->
   </section>
 </template>
@@ -41,6 +42,8 @@
 // import { h } from 'vue'
 import markdown from "@/components/markdown";
 import { ref } from 'vue'
+import { updateArticl } from '@/api/posteriorCanal'
+
 export default {
   components: {
     markdown,
@@ -48,6 +51,8 @@ export default {
   setup() {
     const test = ref('23333')
     const url = ref('')
+    let file;
+
 
     const form = ref({
       title: '',
@@ -61,10 +66,21 @@ export default {
     }
 
     const changeFile = (val) => {
-      console.log(val.target.files)
-      const file = new FormData()
-      file.append('file',val.target.files[0])
+      file = val.target.files[0]
       url.value = URL.createObjectURL(val.target.files[0])
+
+    }
+
+    const upload = () => {
+      const files = new FormData()
+      files.append('file',file)
+      files.append('title', form.value.title)
+      files.append('type', form.value.type)
+      files.append('context', form.value.context)
+
+      updateArticl(files).then(res => {
+        console.log(res)
+      })
     }
 
     return {
@@ -72,7 +88,8 @@ export default {
       change,
       form,
       changeFile,
-      url
+      url,
+      upload
     }
   }
 
@@ -81,6 +98,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 #index {
+  padding: 0.2rem 0.16rem;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -106,13 +124,13 @@ export default {
     .edit-box {
       padding: 0.08rem;
       textarea {
-        box-sizing:border-box;
+        box-sizing: border-box;
         overflow-x: auto;
-        white-space:nowrap;
+        white-space: nowrap;
         width: 100%;
         height: 3rem;
         resize: none;
-        padding: .09rem;
+        padding: 0.09rem;
       }
       .btn {
         padding: 0.12rem 0.2rem;
@@ -121,6 +139,11 @@ export default {
         }
       }
     }
+  }
+  .preview {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
   }
 }
 </style>

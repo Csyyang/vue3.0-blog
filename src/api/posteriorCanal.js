@@ -8,3 +8,14 @@ export function submit(data) {
     })
 }
 
+export function updateArticl(data) {
+    return request({
+        url: '/posterior/updateArticl',
+        method: 'post',
+        data,
+        header: {
+            ' Content-Type': 'multipart/form-data'
+        }
+    })
+}
+

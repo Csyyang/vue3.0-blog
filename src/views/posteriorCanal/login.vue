@@ -12,7 +12,7 @@
         <input v-model="password" name="password" type="password">
       </div>
 
-      <button class="btn" @click="login">登录</button>
+      <button type="button" class="btn" @click.stop="login">登录</button>
     </form>
   </section>
 </template>
@@ -82,6 +82,7 @@ export default {
     }
     .btn {
       display: block;
+      padding: 0;
       width: .3rem;
       margin: 0 auto;
       color: #fff;

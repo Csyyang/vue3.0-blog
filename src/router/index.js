@@ -16,6 +16,11 @@ const route = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+  {
+    path: '/details',
+    name: 'Details',
+    component: () => import(/* webpackChunkName: "about" */ '../views/details.vue')
+  },
 ]
 
 let routes = route.concat(posteriorCanal)

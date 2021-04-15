@@ -20,7 +20,7 @@
     </section>
 
     <!-- 文章组件 -->
-    <articles />
+    <articles :articles="articleList" />
 
     <!-- 底部组件 -->
     <footers />
@@ -34,6 +34,8 @@ import headers from '@/components/header'
 import touchMethods from '@/views/home/home.js'
 import articles from '@/components/article'
 import footers from '@/components/footer'
+import { getArticles } from '@/api/front'
+import { ref } from 'vue'
 
 export default {
   name: 'Home',
@@ -46,6 +48,17 @@ export default {
     // 轮播
     const { img, imgIndex, touch, move, touchmove, touchend, touchstart } = touchMethods()
 
+    //获取文章列表
+    let articleList = ref([])
+
+    const getList = async () => {
+      const res = await getArticles()
+      articleList.value = res.message
+    }
+
+
+    getList()
+
     return {
       touch,
       img,
@@ -53,7 +66,8 @@ export default {
       imgIndex,
       touchend,
       touchmove,
-      touchstart
+      touchstart,
+      articleList
     }
   },
   methods: {
