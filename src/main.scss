@@ -89,8 +89,8 @@ a:active {
     line-height: 0.12rem;
     font-size: 0.12rem;
 }
-
-//loading 组件
+/*************************************************/
+/*loading 组件*/
 @keyframes rotates {
     to {
         transform: rotate(0);
@@ -121,7 +121,7 @@ a:active {
 
     }
 }
-
+/*************************************************/
 button {
     margin: 0 auto;
     padding: 0.05em 0.1rem;
@@ -132,4 +132,26 @@ button {
     border-radius: 0.05rem;
     border: 1px solid #ccc;
 }
+
+
+/*************************************************/
+/*tips 组件*/
+/***/#tips {
+/***/    position: fixed;
+/***/    top: 0;
+/***/    width: 100vw;
+/***/    height: 0.4rem;
+/***/    color: #fff;
+/***/    z-index: 999999;
+/***/    text-align: center;
+/***/    line-height: .4rem;
+/***/  }
+/***/  
+/***/  .danger {
+/***/      background: #F56C6C;
+/***/  }
+/***/  .success {
+/***/      background: #67C23A;
+/***/  }
+/*************************************************/
 

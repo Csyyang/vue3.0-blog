@@ -38,8 +38,7 @@
 </template>
 
 <script>
-// import loading from '@/plugin/loading/index'
-// import { h } from 'vue'
+import tips from '@/plugin/tips/index'
 import markdown from "@/components/markdown";
 import { ref } from 'vue'
 import { updateArticl } from '@/api/posteriorCanal'
@@ -49,17 +48,20 @@ export default {
     markdown,
   },
   setup() {
+    const data = () => {
+      return {
+      title: '',
+      type: '',
+      context: '',
+      file: ''
+    }
+    }
     const test = ref('23333')
     const url = ref('')
     let file;
 
 
-    const form = ref({
-      title: '',
-      type: '',
-      context: '',
-      file: ''
-    })
+    const form = ref(data())
 
     const change = () => {
       test.value = '111111'
@@ -73,15 +75,19 @@ export default {
 
     const upload = () => {
       const files = new FormData()
-      files.append('file',file)
+      files.append('file', file)
       files.append('title', form.value.title)
       files.append('type', form.value.type)
       files.append('context', form.value.context)
 
       updateArticl(files).then(res => {
-        console.log(res)
+        if (res.code === '00') {
+          tips.serve('上传成功', 'success')
+          form.value = data()
+        }
       })
     }
+    
 
     return {
       test,

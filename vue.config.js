@@ -11,7 +11,7 @@ module.exports = {
                 devServer: {
                     proxy: { // proxy URLs to backend development server
                         '/api': {
-                            target: 'http://localhost:3000'
+                            target: 'http://yangyangcsy.cn'
                         }
                     }
                 }

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import loading from '@/plugin/loading/index'
+import tips from '@/plugin/tips/index'
+
 
 let loadings = loading.serve()
 
@@ -36,14 +38,15 @@ service.interceptors.response.use(
       return Promise.reject(new Error(res.message || 'Error'))
     } else if (res.code !== '00') {
         console.log(res.message)
-
-      return res
+        tips.serve(res.message,'danger')
+        return res
     } else {
       return res
     }
   },
   error => {
     loadings.close()
+    tips.serve(error,'danger')
     console.log(error) // for debug
     const reg1 = /timeout/gi
     let msg = error.message

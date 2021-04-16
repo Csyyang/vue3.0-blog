@@ -42,7 +42,7 @@ export default {
   components: {
     headers,
     articles,
-    footers
+    footers,
   },
   setup() {
     // 轮播
