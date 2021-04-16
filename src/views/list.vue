@@ -14,7 +14,7 @@ import { getTypeArticles } from '@/api/front'
 import articles from '@/components/article'
 import headers from '@/components/header'
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export default {
   components: {
@@ -22,20 +22,29 @@ export default {
     headers
   },
   setup() {
+
     const route = useRoute()
-    const type = route.query.type
-    
+    let type = computed(() => route.params.type)
+
     const articleList = ref([])
 
+    watch(type, (value) => {
+      console.log(value)
+      if (value !== undefined) {
+        getList()
+      }
+    })
+
+
     const getList = async () => {
-      const res = await getTypeArticles({ type })
+      const res = await getTypeArticles({ type: type.value })
       articleList.value = res.context
     }
-
     getList()
 
     return {
-      articleList
+      articleList,
+      getList
     }
 
 

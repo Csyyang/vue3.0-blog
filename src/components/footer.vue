@@ -3,7 +3,7 @@
       <p class="title">前端博客</p>
       <p class="text">斯人若彩虹，遇上方知有</p>
       <hr />
-      <p class="bei font12">© 2018 All Right Reserved 蜀ICP备19009210号</p>
+      <p class="bei font12">© 2018 All Right Reserved <a href="https://beian.miit.gov.cn">蜀ICP备19009210号</a></p>
   </footer>
 </template>
 
@@ -31,6 +31,9 @@ footer {
     .bei {
         margin-top: .1rem;
         color: #eee;
+    }
+    a {
+        color: orange;
     }
 }
 </style>

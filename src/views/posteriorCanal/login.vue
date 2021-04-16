@@ -28,8 +28,8 @@ export default {
 
     const store = useStore()
     const router = useRouter()
-    const user = ref('admin')
-    const password = ref('admin')
+    const user = ref('')
+    const password = ref('')
 
     const login = async () => {
       const res = await submit({ user: user.value, password: password.value })

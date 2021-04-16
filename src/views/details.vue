@@ -1,5 +1,4 @@
 <template>
-
   <section id="details">
     <div style="height:.5rem">
       <headers />

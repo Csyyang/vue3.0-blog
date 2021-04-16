@@ -20,7 +20,7 @@
 </template>
 <script>
 import { ref } from "vue";
-import popup from './popup'
+import popup from './popupLeft'
 
 export default {
   components: {

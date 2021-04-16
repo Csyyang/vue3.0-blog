@@ -3,17 +3,17 @@ const upload = require('../utill/upload')
 const mysql = require('../mysql/index')
 
 
-// router.use('/', async (ctx, next) => {
-//     if (ctx.request.url.endsWith('login') || ctx.session.user === 'admin') {
-//         await next()
-//     } else {
-//         ctx.response.body = {
-//             code: '01',
-//             message: '权限不足'
-//         }
-//     }
+router.use('/', async (ctx, next) => {
+    if (ctx.request.url.endsWith('login') || ctx.session.user === 'admin') {
+        await next()
+    } else {
+        ctx.response.body = {
+            code: '01',
+            message: '权限不足'
+        }
+    }
 
-// })
+})
 
 router.post('/login', async ctx => {
     const { user, password } = ctx.request.body
