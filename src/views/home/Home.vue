@@ -31,7 +31,7 @@
 // @ is an alias to /src
 // import { ref } from 'vue'
 import headers from '@/components/header'
-import touchMethods from '@/views/home/home.js'
+import touchMethods from '@/views/home/touch.js'
 import articles from '@/components/article'
 import footers from '@/components/footer'
 import { getArticles } from '@/api/front'
@@ -68,11 +68,6 @@ export default {
       touchmove,
       touchstart,
       articleList
-    }
-  },
-  methods: {
-    test(a) {
-      console.log(a)
     }
   }
 }

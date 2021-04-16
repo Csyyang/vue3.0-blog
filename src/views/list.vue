@@ -43,5 +43,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+#list {
+  height: 100vh;
+  overflow-y: scroll;
+  background: #fff;
+}
 </style>

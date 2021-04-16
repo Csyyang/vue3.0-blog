@@ -21,10 +21,12 @@
 import { ref } from 'vue'
 import { submit } from '@/api/posteriorCanal'
 import { useRouter } from 'vue-router'
-
+import { useStore } from 'vuex';
 
 export default {
   setup() {
+
+    const store = useStore()
     const router = useRouter()
     const user = ref('admin')
     const password = ref('admin')
@@ -32,6 +34,7 @@ export default {
     const login = async () => {
       const res = await submit({ user: user.value, password: password.value })
       if (res.code == '00') {
+        store.commit('changeRoot', true)
         router.push('./index')
       }
     }

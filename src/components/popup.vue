@@ -22,7 +22,12 @@
                 <router-link :to="{ path: '/list', query: { type: '0' } }">
                   <span>技术分享</span>
                 </router-link>
-
+              </li>
+              <li>
+                <img :src="require('@/assets/code.png')">
+                <router-link :to="{ path: '/list', query: { type: '1' } }">
+                  <span>游戏杂谈</span>
+                </router-link>
               </li>
               <li>
                 <img :src="require('@/assets/message.png')">
@@ -32,6 +37,13 @@
                 <img :src="require('@/assets/myself.png')">
                 <span>个人中心</span>
               </li>
+              <li v-if="root">
+                <img :src="require('@/assets/myself.png')">
+                <router-link to="/posterior/index">
+                  <span>编辑</span>
+                </router-link>
+              </li>
+
             </ul>
           </section>
         </div>
@@ -42,6 +54,8 @@
 
 
 <script>
+import { useStore } from 'vuex';
+import { computed } from "vue";
 
 export default {
   props: {
@@ -52,19 +66,22 @@ export default {
   },
   emits: ['closePopup'],
   setup(props, { emit }) {
-
-
-
+    //data
+    //store
+    const store = useStore()
+    // computed
+    const root = computed(() => store.state.root)
+    // method
     const closePopup = (e) => {
       if (e.target !== e.currentTarget) return;
-
       emit('closePopup')
     };
 
-
+    console.log(root.value)
 
     return {
-      closePopup
+      closePopup,
+      root
     }
   },
 }
@@ -74,6 +91,7 @@ export default {
 .popup {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
   width: 100vw;
   height: 100vh;
@@ -99,6 +117,8 @@ export default {
     .list-menu {
       padding-top: 0.1rem;
       .list-context {
+        color: #fff;
+
         a {
           color: #fff;
         }

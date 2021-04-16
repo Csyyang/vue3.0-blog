@@ -1,6 +1,8 @@
 <template>
   <section id="index">
-
+    <div style="height: .5rem">
+      <headers />
+    </div>
     <form>
       <div class="form-item">
         <label for="title">标题</label>
@@ -42,19 +44,22 @@ import tips from '@/plugin/tips/index'
 import markdown from "@/components/markdown";
 import { ref } from 'vue'
 import { updateArticl } from '@/api/posteriorCanal'
+import headers from '@/components/header'
+
 
 export default {
   components: {
     markdown,
+    headers
   },
   setup() {
     const data = () => {
       return {
-      title: '',
-      type: '',
-      context: '',
-      file: ''
-    }
+        title: '',
+        type: '',
+        context: '',
+        file: ''
+      }
     }
     const test = ref('23333')
     const url = ref('')
@@ -87,7 +92,7 @@ export default {
         }
       })
     }
-    
+
 
     return {
       test,
