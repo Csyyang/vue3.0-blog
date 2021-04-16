@@ -32,7 +32,7 @@ router.post('/login', async ctx => {
 })
 
 router.post('/updateArticl', upload.single('file'), async ctx => {
-    const path = `http://localhost:3000/static/image/${ctx.req.file.filename}`
+    const path = `http://yangyangcsy.cn/static/image/${ctx.req.file.filename}`
     const body = ctx.req.body
 
     let dataShee = 'article';
