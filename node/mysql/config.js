@@ -10,11 +10,8 @@ const configSql = {
   USERNAME: 'root',
   PASSWORD: 'root',
   PORT: '3306',
-<<<<<<< HEAD
   HOST: '101.34.66.232'
-=======
-  HOST: 'localhost'
->>>>>>> ff51517d1fbb4accabbf54f71d20f16e8daf74b6
+  // HOST: 'localhost'
 }
 
 module.exports = configSql;

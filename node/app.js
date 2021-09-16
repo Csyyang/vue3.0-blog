@@ -4,6 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const router = require('./controllers/index');
 const Static = require('koa-static')
 const session_configs = require('./config/session');//session配置文件
+const path = require('path')
 
 
 const app = new Koa();
@@ -16,6 +17,10 @@ app.on('error', async (err) => {//捕获全局错误
     // TODO logger errStack
     console.error(err);
 });
+app.use(Static(
+    path.join(__dirname, './static'), {
+        maxage: 3600 * 1000
+    }
+))
 
-
-app.use(Static(__dirname, 'static')).use(bodyParser()).use(router.routes()).listen(80);
+app.use(bodyParser()).use(router.routes()).listen(8081);

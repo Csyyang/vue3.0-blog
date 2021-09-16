@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'development' ? '/' : '/static/dist',
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : '/vue3Blog/dist',
     configureWebpack: () => {
         if (process.env.NODE_ENV === 'production') {
             console.log('生产')
