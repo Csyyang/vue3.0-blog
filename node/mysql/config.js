@@ -3,7 +3,7 @@ const configSql = {
   USERNAME: 'root',
   PASSWORD: 'root',
   PORT: '3306',
-  HOST: '39.105.180.4'
+  HOST: '101.34.66.232'
 }
 
 module.exports = configSql;
