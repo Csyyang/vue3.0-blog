@@ -3,7 +3,7 @@
       <p class="title">前端博客</p>
       <p class="text">斯人若彩虹，遇上方知有</p>
       <hr />
-      <!-- <p class="bei font12">© 2018 All Right Reserved <a href="https://beian.miit.gov.cn">蜀ICP备19009210号</a></p> -->
+      <p class="bei font12">© 2018 All Right Reserved <a href="https://beian.miit.gov.cn">蜀ICP备2021031837号</a></p>
   </footer>
 </template>
 
