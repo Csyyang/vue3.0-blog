@@ -11,7 +11,6 @@ const configSql = {
   PASSWORD: 'admin',
   PORT: '3306',
   HOST: '127.0.0.1',
-  PASSWORD: 'CSY19961222'
   // HOST: 'localhost'
 }
 
