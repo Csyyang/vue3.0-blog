@@ -7,10 +7,10 @@
  */
 const configSql = {
   DATABASE: 'blog',
-  USERNAME: 'root',
-  PASSWORD: 'root',
+  USERNAME: 'admin',
+  PASSWORD: 'admin',
   PORT: '3306',
-  HOST: '101.34.66.232',
+  HOST: '127.0.0.1',
   PASSWORD: 'CSY19961222'
   // HOST: 'localhost'
 }
