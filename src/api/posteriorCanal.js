@@ -14,7 +14,7 @@ export function updateArticl(data) {
         method: 'post',
         data,
         header: {
-            ' Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data'
         }
     })
 }
