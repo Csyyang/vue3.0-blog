@@ -32,6 +32,7 @@ router.post('/login', async ctx => {
 })
 
 router.post('/updateArticl', upload.single('file'), async ctx => {
+    console.log(ctx.req.body)
     const path = `https://yangyangcsy.cn/vue3Blog/image/${ctx.req.file.filename}`
     const body = ctx.req.body
 
